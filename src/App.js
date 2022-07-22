@@ -1,7 +1,12 @@
 import React from 'react';
+import Header from './Components/Header';
+import PhotosIndex from './Pages/PhotosIndex';
 
 export default function App() {
   return (
-    <h1>App</h1>
+    <>
+      <Header />
+      <PhotosIndex />
+    </>
   )
 }
