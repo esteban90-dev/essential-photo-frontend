@@ -63,8 +63,6 @@ export default function Login(props) {
     setStartFetch(false);
   }, [startFetch])
 
-  console.log('rendered login page');
-
   return (
     <div className="login">
       <h1 className="login__title">Login</h1>

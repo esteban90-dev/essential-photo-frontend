@@ -6,8 +6,6 @@ import Admin from './Pages/Admin';
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
-  console.log('rendered app');
-
   return (
     <>
       <Routes>
