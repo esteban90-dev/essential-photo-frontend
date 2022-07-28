@@ -53,6 +53,11 @@ table {
   box-sizing: border-box;
 }
 
+/* Body */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
 /* Headers */
 
 h1 {
@@ -70,5 +75,7 @@ h3 {
 h4 {
   font-size: 20px;
 }
+
+
 
 
