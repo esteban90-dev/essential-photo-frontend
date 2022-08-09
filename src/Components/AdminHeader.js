@@ -33,9 +33,9 @@ export default function AdminHeader() {
 
       // redirect to the login page
       navigate("/login", { replace: true });
+
+      setStartFetch(false);
     }
-    
-    setStartFetch(false);
   }, [startFetch, navigate])
 
   return (

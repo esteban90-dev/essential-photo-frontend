@@ -60,8 +60,8 @@ export default function Login(props) {
 
     if (startFetch) {
       login();
+      setStartFetch(false);
     }
-    setStartFetch(false);
   }, [startFetch, formData, navigate, setIsLoggedIn])
 
   return (
