@@ -7,22 +7,22 @@ export default function AdminHeader() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (startFetch) {
-      async function logout() {
-        const response = await fetch('http://127.0.0.1:3001/api/v1/auth/sign_out', {
-          method: 'DELETE',
-          headers: {
-            'access-token': sessionStorage.getItem('access-token'),
-            'client': sessionStorage.getItem('client'),
-            'uid': sessionStorage.getItem('uid'),
-        }});
+    async function logout() {
+      const response = await fetch('http://127.0.0.1:3001/api/v1/auth/sign_out', {
+        method: 'DELETE',
+        headers: {
+          'access-token': sessionStorage.getItem('access-token'),
+          'client': sessionStorage.getItem('client'),
+          'uid': sessionStorage.getItem('uid'),
+      }});
 
-        // log an error to the console if the response to the logout request is not a 200
-        if (!response.ok) {
-          console.error('logout request unsuccessful');
-        }
+      // log an error to the console if the response to the logout request is not a 200
+      if (!response.ok) {
+        console.error('logout request unsuccessful');
       }
+    }
 
+    if (startFetch) {
       // send the logout request
       logout();
 
@@ -30,11 +30,11 @@ export default function AdminHeader() {
       sessionStorage.removeItem('access-token');
       sessionStorage.removeItem('client');
       sessionStorage.removeItem('uid');
-      
+
       // redirect to the login page
       navigate("/login", { replace: true });
     }
-
+    
     setStartFetch(false);
   }, [startFetch, navigate])
 
