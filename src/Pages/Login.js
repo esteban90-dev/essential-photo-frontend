@@ -9,6 +9,7 @@ export default function Login(props) {
   
   const [startFetch, setStartFetch] = React.useState(false);
   const [error, setError] = React.useState('');
+  const {setIsLoggedIn} = props;
 
   const navigate = useNavigate();
 
@@ -45,7 +46,7 @@ export default function Login(props) {
         sessionStorage.setItem('uid', response.headers.get('uid'));
 
         //set login state to true
-        props.setIsLoggedIn(true);
+        setIsLoggedIn(true);
 
         //redirect to the admin page
         navigate("/admin", { replace: true });
@@ -61,7 +62,7 @@ export default function Login(props) {
       login();
     }
     setStartFetch(false);
-  }, [startFetch])
+  }, [startFetch, formData, navigate, setIsLoggedIn])
 
   return (
     <div className="login">
