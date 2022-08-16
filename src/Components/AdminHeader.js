@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
+import {BASE_URL, LOGOUT_ENDPOINT} from '../settings';
 
 export default function AdminHeader() {
   const [startFetch, setStartFetch] = React.useState(false);
@@ -8,7 +9,7 @@ export default function AdminHeader() {
 
   useEffect(() => {
     async function logout() {
-      const response = await fetch('http://127.0.0.1:3001/api/v1/auth/sign_out', {
+      const response = await fetch(`${BASE_URL}${LOGOUT_ENDPOINT}`, {
         method: 'DELETE',
         headers: {
           'access-token': sessionStorage.getItem('access-token'),

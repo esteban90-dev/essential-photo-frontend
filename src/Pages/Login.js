@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
+import {BASE_URL, LOGIN_ENDPOINT} from '../settings';
 
 export default function Login(props) {
   const [formData, setFormData] = React.useState({
@@ -31,7 +32,7 @@ export default function Login(props) {
   // api to attempt to login
   useEffect(() => {
     async function login() {
-      const response = await fetch('http://127.0.0.1:3001/api/v1/auth/sign_in', {
+      const response = await fetch(`${BASE_URL}${LOGIN_ENDPOINT}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
