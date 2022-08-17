@@ -104,6 +104,18 @@ input:focus {
   border-radius: 5px;
 }
 
+.adminheader__link {
+  display: block;
+  text-decoration: none;
+  color: #333333;
+  font-weight: bold;
+  height: 100%;
+}
+
+.adminheader__link:hover, .adminheader__link--active {
+  color: #4579FF;
+}
+
 .adminheader__logout {
   border: none;
   background-color: inherit;

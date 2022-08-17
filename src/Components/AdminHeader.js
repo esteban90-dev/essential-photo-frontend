@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
+import {Link} from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
 import {BASE_URL, LOGOUT_ENDPOINT} from '../settings';
 
 export default function AdminHeader() {
   const [startFetch, setStartFetch] = React.useState(false);
+
+  const location = useLocation();
 
   const navigate = useNavigate();
 
@@ -42,6 +46,11 @@ export default function AdminHeader() {
   return (
     <header className="adminheader">
       <h1>Admin</h1>
+      {location.pathname === "/admin/images" ? 
+        <Link to="/admin" className="adminheader__link adminheader__link--active">Images</Link>
+        :
+        <Link to="/admin" className="adminheader__link">Images</Link>
+      }
       <button
         className="adminheader__logout"
         onClick={() => {setStartFetch(true)}}
