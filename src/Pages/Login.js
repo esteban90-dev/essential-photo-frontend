@@ -50,7 +50,7 @@ export default function Login(props) {
         setIsLoggedIn(true);
 
         //redirect to the admin page
-        navigate("/admin", { replace: true });
+        navigate("/admin/images", { replace: true });
       }
       else {
         //save error message in state

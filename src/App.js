@@ -1,7 +1,7 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom';
 import Login from './Pages/Login';
-import Admin from './Pages/Admin';
+import AdminImages from './Pages/AdminImages';
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
@@ -10,7 +10,7 @@ export default function App() {
     <>
       <Routes>
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn}/>}></Route>
-        <Route path="/admin" element={isLoggedIn ? <Admin /> : <Login setIsLoggedIn={setIsLoggedIn}/>}></Route>
+        <Route path="/admin/images" element={isLoggedIn ? <AdminImages /> : <Login setIsLoggedIn={setIsLoggedIn}/>}></Route>
       </Routes>
     </>
   )
