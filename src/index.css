@@ -132,7 +132,7 @@ input:focus {
 }
 
 .adminheader__logout:hover {
-  text-decoration: underline;
+  color: #4579FF;
 }
 
 /* Login Page */
