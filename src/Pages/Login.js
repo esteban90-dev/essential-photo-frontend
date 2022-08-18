@@ -97,7 +97,7 @@ export default function Login(props) {
           error && <p className="login__error">{error}</p>
         }
 
-        <button className="login__button">Log In</button>
+        <button className="button button--wide">Log In</button>
       </form>
     </div>
   )

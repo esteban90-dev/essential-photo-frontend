@@ -93,6 +93,32 @@ input:focus {
   outline: 2px solid #4579FF;
 }
 
+.button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px 10px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4579FF;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button--wide {
+  width: 100%;
+}
+
+.button__icon {
+  color: white;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
 /* Admin Header */
 .adminheader {
   display: flex;
@@ -150,18 +176,6 @@ input:focus {
   margin-bottom: 24px;
 }
 
-.login__button {
-  width: 100%;
-  height: 35px;
-  border: none;
-  border-radius: 5px;
-  background-color: #4579FF;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-}
-
 .login__form {
   padding: 25px;
   margin: 0 20px 0 20px;
@@ -174,6 +188,49 @@ input:focus {
 .login__error {
   color: red;
   margin-bottom: 24px;
+}
+
+/* Admin Page Container */
+.admin__pageContainer {
+  padding-top: 30px;
+  background-color: #B9B9B9;
+  height: 100vh;
+}
+
+/* Admin Images Page */
+.adminimages__container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  max-width: 1000px;
+  width: 100%;
+  height: 500px;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.adminimages__header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px;
+  border-color: #E3E3E3;
+}
+
+.adminimages__title {
+  font-weight: bold;
+}
+
+/* Drag Drop */
+.dragdrop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  border-radius: 5px;
+  background: rgba(69, 121, 255, 0.1); 
+  height: 100%;
 }
 
 
