@@ -16,8 +16,13 @@ export default function AdminImages() {
   function handleChange(event) {
     const files = [...event.target.files];
 
+    // remove any non-image files
+    const imageFiles = files.filter(file => {
+      return file.type === "image/jpeg" || file.type === "image/png"
+    });
+
     // build a formData object for each file
-    const formDatas = files.map(file => {
+    const formDatas = imageFiles.map(file => {
       const formData = new FormData();
       formData.append('image', file);
       return formData;
