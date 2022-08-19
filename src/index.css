@@ -193,8 +193,8 @@ input:focus {
 /* Admin Page Container */
 .admin__pageContainer {
   padding-top: 30px;
+  padding-bottom: 30px;
   background-color: #B9B9B9;
-  height: 100vh;
 }
 
 /* Admin Images Page */
@@ -204,7 +204,7 @@ input:focus {
   background-color: white;
   max-width: 1000px;
   width: 100%;
-  height: 500px;
+  min-height: 500px;
   margin: 0 auto;
   border-radius: 5px;
 }
@@ -222,15 +222,44 @@ input:focus {
   font-weight: bold;
 }
 
+.adminimages__fileInput {
+  display: none;
+}
+
 /* Drag Drop */
 .dragdrop {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 20px;
   border-radius: 5px;
   background: rgba(69, 121, 255, 0.1); 
+  padding: 10px;
+  min-height: inherit;
+}
+
+.dragdrop__image {
+  width: 175px;
+  height: 125px;
+  object-fit: cover;
+  margin: 1px;
+}
+
+.dragdrop__innerContainer {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  min-height: inherit;
+}
+
+.dragdrop__loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  padding: inherit;
+  color: white;
   height: 100%;
+  width: 100%;
+  background: rgba(66, 66, 66, 0.637); 
 }
 
 
