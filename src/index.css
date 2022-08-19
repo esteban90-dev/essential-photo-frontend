@@ -192,8 +192,7 @@ input:focus {
 
 /* Admin Page Container */
 .admin__pageContainer {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 30px 10px 30px 10px;
   background-color: #B9B9B9;
 }
 
@@ -235,11 +234,19 @@ input:focus {
   min-height: inherit;
 }
 
+.dragdrop__imageContainer {
+  position: relative;
+  width: 20%;
+  height: 150px;
+  padding: 2px;
+}
+
 .dragdrop__image {
-  width: 175px;
-  height: 125px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  margin: 1px;
+  padding: inherit;
 }
 
 .dragdrop__innerContainer {
@@ -260,6 +267,16 @@ input:focus {
   height: 100%;
   width: 100%;
   background: rgba(66, 66, 66, 0.637); 
+}
+
+
+
+/* mobile styles */
+@media screen and (max-width: 500px) {
+  .dragdrop__imageContainer {
+    width: 50%;
+    height: 100px;
+  }
 }
 
 
