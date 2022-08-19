@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import {useLocation} from 'react-router-dom';
 import {useNavigate} from 'react-router-dom';
+import {Context} from '../context';
 import {BASE_URL, LOGOUT_ENDPOINT} from '../settings';
 
 export default function AdminHeader() {
@@ -11,8 +12,10 @@ export default function AdminHeader() {
 
   const navigate = useNavigate();
 
+  const {logout} = React.useContext(Context);
+
   useEffect(() => {
-    async function logout() {
+    async function logoutFetch() {
       const response = await fetch(`${BASE_URL}${LOGOUT_ENDPOINT}`, {
         method: 'DELETE',
         headers: {
@@ -29,12 +32,15 @@ export default function AdminHeader() {
 
     if (startFetch) {
       // send the logout request
-      logout();
+      logoutFetch();
 
       // clear tokens out of sessionStorage
       sessionStorage.removeItem('access-token');
       sessionStorage.removeItem('client');
       sessionStorage.removeItem('uid');
+
+      // clear login state
+      logout();
 
       // redirect to the login page
       navigate("/login", { replace: true });

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
+import {Context} from '../context';
 import {BASE_URL, LOGIN_ENDPOINT} from '../settings';
 
 export default function Login(props) {
@@ -10,7 +11,7 @@ export default function Login(props) {
   
   const [startFetch, setStartFetch] = React.useState(false);
   const [error, setError] = React.useState('');
-  const {setIsLoggedIn} = props;
+  const {login} = React.useContext(Context);
 
   const navigate = useNavigate();
 
@@ -31,7 +32,7 @@ export default function Login(props) {
   // once the form is submitted, send a post request to the 
   // api to attempt to login
   useEffect(() => {
-    async function login() {
+    async function loginFetch() {
       const response = await fetch(`${BASE_URL}${LOGIN_ENDPOINT}`, {
         method: 'POST',
         headers: {
@@ -46,8 +47,8 @@ export default function Login(props) {
         sessionStorage.setItem('client', response.headers.get('client'));
         sessionStorage.setItem('uid', response.headers.get('uid'));
 
-        //set login state to true
-        setIsLoggedIn(true);
+        //set login state
+        login();
 
         //redirect to the admin page
         navigate("/admin/images", { replace: true });
@@ -60,10 +61,10 @@ export default function Login(props) {
     }
 
     if (startFetch) {
-      login();
+      loginFetch();
       setStartFetch(false);
     }
-  }, [startFetch, formData, navigate, setIsLoggedIn])
+  }, [startFetch, formData, navigate])
 
   return (
     <div className="login">
