@@ -64,7 +64,7 @@ export default function Login(props) {
       loginFetch();
       setStartFetch(false);
     }
-  }, [startFetch, formData, navigate])
+  }, [startFetch, formData, navigate, login])
 
   return (
     <div className="login">

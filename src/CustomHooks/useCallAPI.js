@@ -93,7 +93,7 @@ export default function useCallAPI() {
       }); 
     }
 
-  }, [fetchParameters]);
+  }, [fetchParameters, logout, navigate]);
 
   return {data, isLoading, setFetchParameters}
 }

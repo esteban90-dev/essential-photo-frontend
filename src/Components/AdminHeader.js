@@ -47,7 +47,7 @@ export default function AdminHeader() {
 
       setStartFetch(false);
     }
-  }, [startFetch, navigate])
+  }, [startFetch, navigate, logout])
 
   return (
     <header className="adminheader">

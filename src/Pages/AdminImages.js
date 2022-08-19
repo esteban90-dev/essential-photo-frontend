@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import AdminHeader from '../Components/AdminHeader';
 import plusIcon from '../images/plus-icon.svg';
 import DragDrop from '../Components/DragDrop';
