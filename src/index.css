@@ -250,12 +250,12 @@ input:focus {
   min-height: inherit;
 }
 
-.dragdrop__loading {
+.dragdrop__overlay {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: absolute;
-  padding: inherit;
+  padding-top: 30px;
   color: white;
   height: 100%;
   width: 100%;

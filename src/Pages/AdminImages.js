@@ -21,14 +21,14 @@ export default function AdminImages() {
       const formData = new FormData();
       formData.append('image', file);
       return formData;
-    })
+    });
 
     // initiate file upload
     setFetchParameters({
       url: `${BASE_URL}${POST_IMAGES_ENDPOINT}`,
       method: 'POST',
       bodies: formDatas,
-    })
+    });
 
     // reset file input value
     event.target.value = null;
@@ -54,7 +54,7 @@ export default function AdminImages() {
               onChange={handleChange}
             ></input>
           </header>
-          <DragDrop images={data} isLoading={isLoading}/>
+          <DragDrop images={data} isLoading={isLoading} setFetchParameters={setFetchParameters}/>
         </main>
       </div>
     </>

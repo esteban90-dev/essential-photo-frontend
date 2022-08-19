@@ -65,11 +65,17 @@ export default function useCallAPI() {
         return callAPI(fetchParameters.url, fetchParameters.method, body);
       });
 
-      // once all fetches are done, set loading state to false
+      // once all fetches are done, set loading state to false and clear fetchParameters
       Promise.all(promises)
       .then(() => {
         setIsLoading(false);
       });
+
+      setFetchParameters({
+        url: '',
+        method: '',
+        bodies: [],
+      }); 
     }
 
   }, [fetchParameters]);
