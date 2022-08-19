@@ -119,15 +119,27 @@ input:focus {
   margin-right: 10px;
 }
 
-/* Admin Header */
+/* Admin Page Container */
+.admin__pageContainer {
+  background-color: #B9B9B9;
+  min-height: 100vh;
+}
+
 .adminheader {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0px 20px;
+  margin-bottom: 30px;
+  height: 60px;
   background-color: white;
   border: 1px solid #E3E3E3;
   border-radius: 5px;
+}
+
+.admin__bottom {
+  padding: 0px 10px 30px 10px;
 }
 
 .adminheader__link {
@@ -190,21 +202,15 @@ input:focus {
   margin-bottom: 24px;
 }
 
-/* Admin Page Container */
-.admin__pageContainer {
-  padding: 30px 10px 30px 10px;
-  background-color: #B9B9B9;
-}
-
 /* Admin Images Page */
-.adminimages__container {
+.adminimages{
   display: flex;
   flex-direction: column;
   background-color: white;
   max-width: 1000px;
+  margin: 0 auto;
   width: 100%;
   min-height: 500px;
-  margin: 0 auto;
   border-radius: 5px;
 }
 

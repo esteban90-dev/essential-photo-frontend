@@ -1,5 +1,5 @@
 import React from 'react';
-import AdminHeader from '../Components/AdminHeader';
+import AdminPageContainer from '../Components/AdminPageContainer';
 import plusIcon from '../images/plus-icon.svg';
 import DragDrop from '../Components/DragDrop';
 import {BASE_URL, POST_IMAGES_ENDPOINT} from '../settings';
@@ -41,9 +41,8 @@ export default function AdminImages() {
 
   return (
     <>
-      <AdminHeader />
-      <div className="admin__pageContainer">
-        <main className="adminimages__container">
+      <AdminPageContainer>
+        <main className="adminimages">
           <header className="adminimages__header">
             <h3 className="adminimages__title">Images</h3>
             <button className="button" onClick={handleClick}>
@@ -61,7 +60,7 @@ export default function AdminImages() {
           </header>
           <DragDrop images={data} isLoading={isLoading} setFetchParameters={setFetchParameters}/>
         </main>
-      </div>
+      </AdminPageContainer>
     </>
   )
 }
