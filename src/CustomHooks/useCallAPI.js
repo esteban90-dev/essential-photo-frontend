@@ -1,4 +1,6 @@
 import React from 'react';
+import {Context} from '../context';
+import {useNavigate} from 'react-router-dom';
 
 // use this hook to call the API 
 // this will handle tokens for you
@@ -8,6 +10,8 @@ import React from 'react';
 // setFetchParameters.bodies is an array that can accept one or more request bodies
 // a request will be generated for each body to permit batch requests (for example, 
 // uploading multiple images at once)
+// if any fetch responses are 401 (unauthorized), the global login state will be cleared
+// and the user will be redirected to the login page
 
 export default function useCallAPI() {
   const [data, setData] = React.useState([]);
@@ -17,6 +21,9 @@ export default function useCallAPI() {
     method: '',
     bodies: [],
   });
+
+  const navigate = useNavigate();
+  const {logout} = React.useContext(Context);
 
   React.useEffect(() => {
     async function callAPI(url, method, body) {
@@ -29,6 +36,14 @@ export default function useCallAPI() {
         },
         body: body,
       });
+
+      // if the response is a 401 (unauthorized), logout the user and redirect
+      // to login page
+      if (response.status === 401) {
+        console.error('invalid credentials');
+        logout();
+        navigate("/login", {replace: true});
+      }
 
       // update tokens if response sends new ones
       const accessToken = response.headers.get('access-token');
