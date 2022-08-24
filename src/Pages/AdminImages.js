@@ -42,9 +42,9 @@ export default function AdminImages() {
   return (
     <>
       <AdminLayout>
-        <main className="adminimages">
-          <header className="adminimages__header">
-            <h3 className="adminimages__title">Images</h3>
+        <main className="adminImages">
+          <header className="adminImages__header">
+            <h3 className="adminImages__title">Images</h3>
             <button className="button" onClick={handleClick}>
               <img src={plusIcon} className="button__icon" alt="this is a plus icon"></img>
               <p>Add Images</p>
@@ -53,7 +53,7 @@ export default function AdminImages() {
               type="file"
               multiple
               ref={fileInputEl}
-              className="adminimages__fileInput"
+              className="adminImages__fileInput"
               accept=".png, .jpg, .jpeg"
               onChange={handleChange}
             ></input>

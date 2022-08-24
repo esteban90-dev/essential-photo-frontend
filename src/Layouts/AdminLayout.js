@@ -3,9 +3,9 @@ import AdminHeader from '../Components/AdminHeader';
 
 export default function AdminLayout(props) {
   return (
-    <div className="admin__pageContainer">
+    <div className="adminLayout">
       <AdminHeader/>
-      <div className="admin__bottom">
+      <div className="adminLayout__bottom">
         {props.children}
       </div>
     </div>

@@ -4,11 +4,11 @@ import {BASE_URL, POST_IMAGES_ENDPOINT} from '../settings';
 export default function DragDrop(props) {
   const images = props.images.map(image => {
     return (
-      <div className="dragdrop__imageContainer">
+      <div className="dragDrop__imageContainer">
         <img
           src={image.thumbnail_url}
           key={image.id}
-          className="dragdrop__image"
+          className="dragDrop__image"
           alt=""
         ></img>
       </div>
@@ -53,8 +53,8 @@ export default function DragDrop(props) {
   }
 
   return (
-    <div className="dragdrop">
-      <div className="dragdrop__innerContainer"
+    <div className="dragDrop">
+      <div className="dragDrop__innerContainer"
         onDragEnter={handleDragEnter}
         onDragLeave={handleDragLeave}
         onDragOver={handleDragOver}
@@ -66,7 +66,7 @@ export default function DragDrop(props) {
           <p>No images yet</p>
         }
         {props.isLoading &&
-          <div className="dragdrop__overlay">
+          <div className="dragDrop__overlay">
             <h1>Loading...</h1>
           </div>
         }

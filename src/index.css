@@ -119,58 +119,14 @@ input:focus {
   margin-right: 10px;
 }
 
-/* Admin Page Container */
-.admin__pageContainer {
+/* Admin Layout */
+.adminLayout {
   background-color: #B9B9B9;
   min-height: 100vh;
 }
 
-.adminheader {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px 20px;
-  margin-bottom: 30px;
-  height: 60px;
-  background-color: white;
-  border: 1px solid #E3E3E3;
-  border-radius: 5px;
-}
-
-.admin__bottom {
+.adminLayout__bottom {
   padding: 0px 10px 30px 10px;
-}
-
-.adminheader__link {
-  align-self: stretch;
-  padding: 15px 0px;
-  text-decoration: none;
-  background-color: white;
-  color: #333333;
-  font-weight: bold;
-  border-top: solid 5px;
-  border-top-color: white;
-  border-bottom: solid 5px;
-  border-bottom-color: white;
-}
-
-.adminheader__link:hover, .adminheader__link--active {
-  color: #4579FF;
-  border-bottom-color: #4579FF;
-}
-
-.adminheader__logout {
-  border: none;
-  background-color: inherit;
-  font-size: inherit;
-  font-weight: bold;
-  color: inherit;
-  cursor: pointer;
-}
-
-.adminheader__logout:hover {
-  color: #4579FF;
 }
 
 /* Login Page */
@@ -203,7 +159,7 @@ input:focus {
 }
 
 /* Admin Images Page */
-.adminimages{
+.adminImages{
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -214,7 +170,7 @@ input:focus {
   border-radius: 5px;
 }
 
-.adminimages__header {
+.adminImages__header {
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -223,16 +179,61 @@ input:focus {
   border-color: #E3E3E3;
 }
 
-.adminimages__title {
+.adminImages__title {
   font-weight: bold;
 }
 
-.adminimages__fileInput {
+.adminImages__fileInput {
   display: none;
 }
 
-/* Drag Drop */
-.dragdrop {
+/* Admin Header Component */
+.adminHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  margin-bottom: 30px;
+  height: 60px;
+  background-color: white;
+  border: 1px solid #E3E3E3;
+  border-radius: 5px;
+}
+
+.adminHeader__link {
+  align-self: stretch;
+  padding: 15px 0px;
+  text-decoration: none;
+  background-color: white;
+  color: #333333;
+  font-weight: bold;
+  border-top: solid 5px;
+  border-top-color: white;
+  border-bottom: solid 5px;
+  border-bottom-color: white;
+}
+
+.adminHeader__link:hover, .adminHeader__link--active {
+  color: #4579FF;
+  border-bottom-color: #4579FF;
+}
+
+.adminHeader__logout {
+  border: none;
+  background-color: inherit;
+  font-size: inherit;
+  font-weight: bold;
+  color: inherit;
+  cursor: pointer;
+}
+
+.adminHeader__logout:hover {
+  color: #4579FF;
+}
+
+/* Drag Drop Component */
+.dragDrop {
   margin: 20px;
   border-radius: 5px;
   background: rgba(69, 121, 255, 0.1); 
@@ -240,14 +241,14 @@ input:focus {
   min-height: inherit;
 }
 
-.dragdrop__imageContainer {
+.dragDrop__imageContainer {
   position: relative;
   width: 20%;
   height: 150px;
   padding: 2px;
 }
 
-.dragdrop__image {
+.dragDrop__image {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -255,7 +256,7 @@ input:focus {
   padding: inherit;
 }
 
-.dragdrop__innerContainer {
+.dragDrop__innerContainer {
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -263,7 +264,7 @@ input:focus {
   min-height: inherit;
 }
 
-.dragdrop__overlay {
+.dragDrop__overlay {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -275,11 +276,9 @@ input:focus {
   background: rgba(66, 66, 66, 0.637); 
 }
 
-
-
 /* mobile styles */
 @media screen and (max-width: 500px) {
-  .dragdrop__imageContainer {
+  .dragDrop__imageContainer {
     width: 50%;
     height: 100px;
   }

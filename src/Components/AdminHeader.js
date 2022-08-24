@@ -50,15 +50,15 @@ export default function AdminHeader() {
   }, [startFetch, navigate, logout])
 
   return (
-    <header className="adminheader">
+    <header className="adminHeader">
       <h1>Admin</h1>
       {location.pathname === "/admin/images" ? 
-        <Link to="/admin" className="adminheader__link adminheader__link--active">Images</Link>
+        <Link to="/admin" className="adminHeader__link adminHeader__link--active">Images</Link>
         :
-        <Link to="/admin" className="adminheader__link">Images</Link>
+        <Link to="/admin" className="adminHeader__link">Images</Link>
       }
       <button
-        className="adminheader__logout"
+        className="adminHeader__logout"
         onClick={() => {setStartFetch(true)}}
       >
         Logout
