@@ -4,10 +4,9 @@ import {BASE_URL, POST_IMAGES_ENDPOINT} from '../settings';
 export default function DragDrop(props) {
   const images = props.images.map(image => {
     return (
-      <div className="dragDrop__imageContainer">
+      <div className="dragDrop__imageContainer" key={image.id}>
         <img
           src={image.thumbnail_url}
-          key={image.id}
           className="dragDrop__image"
           alt=""
         ></img>
