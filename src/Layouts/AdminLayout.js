@@ -1,7 +1,7 @@
 import React from 'react';
 import AdminHeader from '../Components/AdminHeader';
 
-export default function AdminPageContainer(props) {
+export default function AdminLayout(props) {
   return (
     <div className="admin__pageContainer">
       <AdminHeader/>
