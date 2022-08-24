@@ -10,6 +10,7 @@ import {useNavigate} from 'react-router-dom';
 // setFetchParameters.bodies is an array that can accept one or more request bodies
 // a request will be generated for each body to permit batch requests (for example, 
 // uploading multiple images at once)
+// leave bodies blank for GET requests
 // if any fetch responses are 401 (unauthorized), the global login state will be cleared
 // and the user will be redirected to the login page
 
@@ -66,19 +67,32 @@ export default function useCallAPI() {
       const parsedResponse = await response.json();
       setData(prevData => {
         const tempData = prevData.slice(0);
-        tempData.push(parsedResponse);
+        
+        if (Array.isArray(parsedResponse)) {
+          parsedResponse.forEach(item => tempData.push(item));
+        }
+        else {
+          tempData.push(parsedResponse);
+        }
+        
         return tempData;
       })
     }
 
-    if (fetchParameters.url && fetchParameters.method && fetchParameters.bodies.length > 0) {
+    if (fetchParameters.url && fetchParameters.method) {
       // set loading state
       setIsLoading(true);
 
-      // submit request to api for each body
-      const promises = fetchParameters.bodies.map(body => {
-        return callAPI(fetchParameters.url, fetchParameters.method, body);
-      });
+      // send request(s)
+      let promises = [];
+      if (fetchParameters.method === 'GET') {
+        promises.push(callAPI(fetchParameters.url, fetchParameters.method, null));
+      }
+      else {
+        promises = fetchParameters.bodies.map(body => {
+          return callAPI(fetchParameters.url, fetchParameters.method, body);
+        });
+      }
 
       // once all fetches are done, set loading state to false and clear fetchParameters
       Promise.all(promises)
