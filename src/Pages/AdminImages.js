@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AdminLayout from '../Layouts/AdminLayout';
 import plusIcon from '../images/plus-icon.svg';
 import DragDrop from '../Components/DragDrop';
-import {BASE_URL, POST_IMAGES_ENDPOINT} from '../settings';
+import {BASE_URL, POST_IMAGES_ENDPOINT, IMAGES_INDEX_ENDPOINT} from '../settings';
 import useCallAPI from '../CustomHooks/useCallAPI';
 
 export default function AdminImages() { 
@@ -38,6 +38,15 @@ export default function AdminImages() {
     // reset file input value
     event.target.value = null;
   }
+
+  useEffect(() => {
+    // when page first loads, fetch photos from backend
+    setFetchParameters({
+      url: `${BASE_URL}${IMAGES_INDEX_ENDPOINT}`,
+      method: 'GET',
+      bodies: [],
+    });
+  }, []);
 
   return (
     <>
