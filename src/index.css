@@ -132,6 +132,7 @@ input:focus {
 .visitorLayout {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 25px;
 }
 
 /* Login Page */
@@ -167,6 +168,7 @@ input:focus {
 .images {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 
 .images__imageContainer {
@@ -314,10 +316,22 @@ input:focus {
 }
 
 /* mobile styles */
+@media screen and (max-width: 400px) {
+  .images__imageContainer {
+    height: 150px;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .dragDrop__imageContainer {
     width: 50%;
     height: 100px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .images__imageContainer {
+    width: 50%;
   }
 }
 
