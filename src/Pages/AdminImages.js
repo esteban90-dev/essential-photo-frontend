@@ -50,7 +50,7 @@ export default function AdminImages() {
 
   return (
     <>
-      <AdminLayout>
+      <AdminLayout hasHeader={true}>
         <main className="adminImages">
           <header className="adminImages__header">
             <h3 className="adminImages__title">Images</h3>

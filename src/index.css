@@ -57,7 +57,6 @@ table {
 body {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
-  background-color: #F2F2F2;
   color: #333333;
 }
 
@@ -129,6 +128,12 @@ input:focus {
   padding: 0px 10px 30px 10px;
 }
 
+/* Visitor Layout */
+.visitorLayout {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 /* Login Page */
 .login {
   max-width: 600px;
@@ -137,7 +142,7 @@ input:focus {
 
 .login__title {
   text-align: center;
-  margin: 30px 0 60px 0;
+  padding: 30px 0 60px 0;
 }
 
 .login__input {
@@ -251,6 +256,17 @@ input:focus {
 
 .adminHeader__logout:hover {
   color: #4579FF;
+}
+
+/* Visitor Header Component */
+
+.visitorHeader {
+  padding: 20px 0px;
+}
+
+.visitorHeader__title {
+  font-size: 32px;
+  font-weight: bold;
 }
 
 /* Drag Drop Component */

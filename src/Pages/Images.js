@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import VisitorLayout from '../Layouts/VisitorLayout';
 import useCallAPI from '../CustomHooks/useCallAPI';
 import {BASE_URL, IMAGES_INDEX_ENDPOINT} from '../settings';
 
@@ -27,8 +28,10 @@ export default function Images() {
   }, []);
 
   return (
-    <main className="images">
-      {images}
-    </main>
+    <VisitorLayout>
+      <main className="images">
+        {images}
+      </main>
+    </VisitorLayout>
   );
 }

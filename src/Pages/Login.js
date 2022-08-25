@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
+import AdminLayout from '../Layouts/AdminLayout';
 import {Context} from '../context';
 import {BASE_URL, LOGIN_ENDPOINT} from '../settings';
 
@@ -67,39 +68,42 @@ export default function Login(props) {
   }, [startFetch, formData, navigate, login])
 
   return (
-    <div className="login">
-      <h1 className="login__title">Login</h1>
+    <AdminLayout hasHeader={false}>
+      <div className="login">
+        <h1 className="login__title">Login</h1>
 
-      <form className="login__form" onSubmit={handleSubmit}>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          className="login__input"
-          id="email"
-          name="email"
-          onChange={handleChange}
-          value={formData.email}
-        >
-        </input>
+        <form className="login__form" onSubmit={handleSubmit}>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            className="login__input"
+            id="email"
+            name="email"
+            onChange={handleChange}
+            value={formData.email}
+          >
+          </input>
 
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          className="login__input"
-          id="password"
-          name="password"
-          onChange={handleChange}
-          value={formData.password}
-        >
-        </input>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            className="login__input"
+            id="password"
+            name="password"
+            onChange={handleChange}
+            value={formData.password}
+          >
+          </input>
 
-        {
-          //if there are errors, display them here
-          error && <p className="login__error">{error}</p>
-        }
+          {
+            //if there are errors, display them here
+            error && <p className="login__error">{error}</p>
+          }
 
-        <button className="button button--wide">Log In</button>
-      </form>
-    </div>
+          <button className="button button--wide">Log In</button>
+        </form>
+      </div>
+    </AdminLayout>
+    
   )
 }
