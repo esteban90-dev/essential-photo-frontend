@@ -58,6 +58,7 @@ body {
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   background-color: #F2F2F2;
+  color: #333333;
 }
 
 /* General Styles */
@@ -92,7 +93,31 @@ input:focus {
   outline: 2px solid #4579FF;
 }
 
-/* Login */
+/* Admin Header */
+.adminheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: white;
+  border: 1px solid #E3E3E3;
+  border-radius: 5px;
+}
+
+.adminheader__logout {
+  border: none;
+  background-color: inherit;
+  font-size: inherit;
+  font-weight: bold;
+  color: inherit;
+  cursor: pointer;
+}
+
+.adminheader__logout:hover {
+  text-decoration: underline;
+}
+
+/* Login Page */
 .login {
   max-width: 600px;
   margin: 0 auto;
@@ -131,13 +156,6 @@ input:focus {
 .login__error {
   color: red;
   margin-bottom: 24px;
-}
-
-.adminheader {
-  padding: 15px 20px;
-  background-color: white;
-  border: 1px solid #E3E3E3;
-  border-radius: 5px;
 }
 
 

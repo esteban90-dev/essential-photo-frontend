@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
+import {BASE_URL, LOGIN_ENDPOINT} from '../settings';
 
 export default function Login(props) {
   const [formData, setFormData] = React.useState({
@@ -9,6 +10,7 @@ export default function Login(props) {
   
   const [startFetch, setStartFetch] = React.useState(false);
   const [error, setError] = React.useState('');
+  const {setIsLoggedIn} = props;
 
   const navigate = useNavigate();
 
@@ -30,7 +32,7 @@ export default function Login(props) {
   // api to attempt to login
   useEffect(() => {
     async function login() {
-      const response = await fetch('http://127.0.0.1:3001/api/v1/auth/sign_in', {
+      const response = await fetch(`${BASE_URL}${LOGIN_ENDPOINT}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,7 +47,7 @@ export default function Login(props) {
         sessionStorage.setItem('uid', response.headers.get('uid'));
 
         //set login state to true
-        props.setIsLoggedIn(true);
+        setIsLoggedIn(true);
 
         //redirect to the admin page
         navigate("/admin", { replace: true });
@@ -59,9 +61,9 @@ export default function Login(props) {
 
     if (startFetch) {
       login();
+      setStartFetch(false);
     }
-    setStartFetch(false);
-  }, [startFetch])
+  }, [startFetch, formData, navigate, setIsLoggedIn])
 
   return (
     <div className="login">
