@@ -5,7 +5,7 @@ import useCallAPI from '../CustomHooks/useCallAPI';
 import {BASE_URL, IMAGES_INDEX_ENDPOINT} from '../settings';
 
 export default function Images() {
-  const {data, isLoading, setFetchParameters} = useCallAPI();
+  const {data, setFetchParameters} = useCallAPI();
   const [modalImageUrl, setModalImageUrl] = React.useState(null);
 
   const images = data.map(image => {
