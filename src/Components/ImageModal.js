@@ -45,8 +45,7 @@ export default function ImageModal(props) {
 
   function handleTouchEnd(event) {
     // when the swipe is released, if the final position is more
-    // than some distance from the original position,
-    // and then load the next image
+    // than some distance from the original position, then load the next image
     // if the the image didn't move enough when the swipe ended, 
     // return it to it's original position before the swipe began
     const swipeDistance = Math.abs(lastTouchPosition - originalTouchPosition);
