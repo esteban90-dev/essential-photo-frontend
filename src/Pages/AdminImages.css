@@ -1,0 +1,27 @@
+.adminImages{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  min-height: 500px;
+  border-radius: 5px;
+}
+
+.adminImages__header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px;
+  border-color: #E3E3E3;
+}
+
+.adminImages__title {
+  font-weight: bold;
+}
+
+.adminImages__fileInput {
+  display: none;
+}

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './AdminImages.css';
 import AdminLayout from '../Layouts/AdminLayout';
 import plusIcon from '../images/plus-icon.svg';
 import DragDrop from '../Components/DragDrop';

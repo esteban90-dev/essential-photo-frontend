@@ -1,4 +1,5 @@
 import React from 'react';
+import './DragDrop.css';
 import {BASE_URL, POST_IMAGES_ENDPOINT} from '../settings';
 
 export default function DragDrop(props) {

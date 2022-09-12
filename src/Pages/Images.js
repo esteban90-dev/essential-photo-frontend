@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './Images.css';
 import VisitorLayout from '../Layouts/VisitorLayout';
 import ImageModal from '../Components/ImageModal';
 import useCallAPI from '../CustomHooks/useCallAPI';

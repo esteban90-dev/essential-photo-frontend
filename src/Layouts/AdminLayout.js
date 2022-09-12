@@ -1,4 +1,5 @@
 import React from 'react';
+import './AdminLayout.css';
 import AdminHeader from '../Components/AdminHeader';
 
 export default function AdminLayout(props) {
