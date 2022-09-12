@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react';
 import leftArrowIcon from '../images/left-arrow-icon.svg';
 import rightArrowIcon from '../images/right-arrow-icon.svg';
+import fullScreenIcon from '../images/fullscreen-icon.svg';
 import {MODAL_ADVANCE_OVERLAY_WIDTH, SWIPE_DISTANCE_THRESHOLD} from '../settings';
 
 export default function ImageModal(props) {
   const [leftOverlayIsHovered, setLeftOverlayIsHovered] = React.useState(false);
   const [rightOverlayIsHovered, setRightOverlayIsHovered] = React.useState(false);
+  const [bottomOverlayIsHovered, setBottomOverlayIsHovered] = React.useState(false);
 
   const modalRef = React.useRef(null);
   const imageRef = React.useRef(null);
   const leftOverlayRef = React.useRef(null);
   const rightOverlayRef = React.useRef(null);
+  const bottomOverlayRef = React.useRef(null);
 
   let originalTouchPosition = null;
   let lastTouchPosition = null;
@@ -67,8 +70,8 @@ export default function ImageModal(props) {
 
   useEffect(() => {
     // When the modal first loads, the image will be resized to 
-    // fit the screen and the advancer overlays will be placed 
-    // on either side of the image.
+    // fit the screen and the overlays will be placed 
+    // on the left, right, and bottom of the image.
     //
     // Additionally, event listeners are attached to the window 
     // object to resize the image and re-place the overlays
@@ -82,6 +85,7 @@ export default function ImageModal(props) {
     const imageElement = imageRef.current;
     const leftOverlayElement = leftOverlayRef.current;
     const rightOverlayElement = rightOverlayRef.current;
+    const bottomOverlayElement = bottomOverlayRef.current;
 
     function resizeImage() {
       const imageAspectRatio = imageRef.current.naturalWidth / imageRef.current.naturalHeight;
@@ -102,6 +106,7 @@ export default function ImageModal(props) {
         height: imageHeight,
         width: imageWidth,
         top: imageTop,
+        bottom: imageBottom,
         left: imageLeft,
         right: imageRight,
       } = imageElement.getBoundingClientRect();
@@ -116,6 +121,12 @@ export default function ImageModal(props) {
       rightOverlayElement.style.top = `${imageTop}px`;
       rightOverlayElement.style.left = 
         `${imageRight - rightOverlayElement.getBoundingClientRect().width}px`;
+
+      // make bottom overlay as high as the left/right overlays are wide
+      bottomOverlayElement.style.height = `${imageHeight * MODAL_ADVANCE_OVERLAY_WIDTH}px`; 
+      bottomOverlayElement.style.width = `${imageWidth}px`;
+      bottomOverlayElement.style.top = 
+        `${imageBottom - bottomOverlayElement.getBoundingClientRect().height}px`;
     }
 
     function handleKeyDown(event) {
@@ -163,9 +174,9 @@ export default function ImageModal(props) {
       ></img>
       <div
         className={leftOverlayIsHovered ? 
-          `imageModal__overlay imageModal__overlay--hovered`
+          `imageModal__leftRightOverlay imageModal__leftRightOverlay--hovered`
           :
-          `imageModal__overlay`
+          `imageModal__leftRightOverlay`
         }
         onMouseEnter={() => setLeftOverlayIsHovered(true)}
         onMouseLeave={() => setLeftOverlayIsHovered(false)}
@@ -176,15 +187,15 @@ export default function ImageModal(props) {
           <img
             src={leftArrowIcon}
             alt="this is an arrow icon"
-            className="imageModal__icon"
+            className="imageModal__arrowIcon"
           ></img>
         }
       </div>
       <div
         className={rightOverlayIsHovered ? 
-          `imageModal__overlay imageModal__overlay--hovered`
+          `imageModal__leftRightOverlay imageModal__leftRightOverlay--hovered`
           :
-          `imageModal__overlay`
+          `imageModal__leftRightOverlay`
         }
         onMouseEnter={() => setRightOverlayIsHovered(true)}
         onMouseLeave={() => setRightOverlayIsHovered(false)}
@@ -195,8 +206,33 @@ export default function ImageModal(props) {
           <img
             src={rightArrowIcon}
             alt="this is an arrow icon"
-            className="imageModal__icon"
+            className="imageModal__arrowIcon"
           ></img>
+        }
+      </div>
+      <div
+        className={bottomOverlayIsHovered ? 
+          `imageModal__bottomOverlay imageModal__bottomOverlay--hovered`
+          :
+          `imageModal__bottomOverlay`
+        }
+        onMouseEnter={() => setBottomOverlayIsHovered(true)}
+        onMouseLeave={() => setBottomOverlayIsHovered(false)}
+        ref={bottomOverlayRef}
+      >
+        {bottomOverlayIsHovered && 
+          <a
+            href={props.url}
+            className="imageModal__fullScreenIconAnchor"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src={fullScreenIcon}
+              alt="this is a fullscreen icon"
+              className="imageModal__fullScreenIcon"
+            ></img>
+          </a> 
         }
       </div>
     </div>
