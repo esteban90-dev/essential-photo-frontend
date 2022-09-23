@@ -88,6 +88,10 @@ input {
   font-size: 16px;
 }
 
+form input {
+  margin-bottom: 24px;
+}
+
 input:focus {
   outline: 2px solid #4579FF;
 }

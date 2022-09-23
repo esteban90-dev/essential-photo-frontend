@@ -77,7 +77,6 @@ export default function Login(props) {
           <label htmlFor="email">Email:</label>
           <input
             type="email"
-            className="login__input"
             id="email"
             name="email"
             onChange={handleChange}
@@ -88,7 +87,6 @@ export default function Login(props) {
           <label htmlFor="password">Password:</label>
           <input
             type="password"
-            className="login__input"
             id="password"
             name="password"
             onChange={handleChange}
