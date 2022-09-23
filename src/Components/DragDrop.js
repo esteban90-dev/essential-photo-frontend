@@ -1,17 +1,12 @@
 import React from 'react';
 import './DragDrop.css';
+import AdminImageCard from './AdminImageCard';
 import {BASE_URL, POST_IMAGES_ENDPOINT} from '../settings';
 
 export default function DragDrop(props) {
-  const images = props.images.map(image => {
+  const adminImages = props.images.map(image => {
     return (
-      <div className="dragDrop__imageContainer" key={image.id}>
-        <img
-          src={image.thumbnail_url}
-          className="dragDrop__image"
-          alt=""
-        ></img>
-      </div>
+      <AdminImageCard key={image.id} image={image} />
     );
   });
 
@@ -60,8 +55,8 @@ export default function DragDrop(props) {
         onDragOver={handleDragOver}
         onDrop={handleDrop}
       >
-        {images.length > 0 ?
-          images
+        {adminImages.length > 0 ?
+          adminImages
         :
           <p>No images yet</p>
         }
