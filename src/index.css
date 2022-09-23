@@ -90,6 +90,7 @@ input {
 
 form input {
   margin-bottom: 24px;
+  margin-top: 3px;
 }
 
 input:focus {
