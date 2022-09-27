@@ -7,8 +7,12 @@ export const DOMAIN_NAME = 'Essential Photo';
 
 // size of the overlays that appear when hovering over the image modal
 // (number is percentage of image width)
+
 export const MODAL_ADVANCE_OVERLAY_WIDTH = .15;
 
 // number of pixels that a swipe must move an image in order to trigger
 // loading the next image (number is in pixels)
+
 export const SWIPE_DISTANCE_THRESHOLD = 50;
+export const MODAL_ADVANCE_OVERLAY_WIDTH = .15; // number is percentage of image width
+export const VALID_UPLOAD_FILE_TYPES = ['image/jpeg', 'image/png'];
