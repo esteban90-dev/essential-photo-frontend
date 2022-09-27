@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import leftArrowIcon from '../images/left-arrow-icon.svg';
 import rightArrowIcon from '../images/right-arrow-icon.svg';
-import {MODAL_ADVANCE_OVERLAY_WIDTH} from '../settings';
+import {MODAL_ADVANCE_OVERLAY_WIDTH, SWIPE_DISTANCE_THRESHOLD} from '../settings';
 
 export default function ImageModal(props) {
   const [leftOverlayIsHovered, setLeftOverlayIsHovered] = React.useState(false);
@@ -12,12 +12,57 @@ export default function ImageModal(props) {
   const leftOverlayRef = React.useRef(null);
   const rightOverlayRef = React.useRef(null);
 
+  let originalTouchPosition = null;
+  let lastTouchPosition = null;
+
   function handleClick(event) {
     // when the modal area outside of the image
     // is clicked, close the modal
     if (event.target === modalRef.current) {
       props.closeModal();
     }
+  }
+
+  function handleTouchStart(event) {
+    // when the image is initially touched, record the 
+    // original X coordinate position
+    originalTouchPosition = event.touches[0].clientX;
+    lastTouchPosition = event.touches[0].clientX;
+  }
+
+  function handleTouchMove(event) {
+    // after the image is initially touched and the touch starts to 
+    // move (swipe) across the screen, modify the styles on the image
+    // to allow the image to track the touch position in the x direction
+    const positionChange = event.touches[0].clientX - lastTouchPosition;
+    const imageLeft = imageRef.current.getBoundingClientRect().left;
+
+    lastTouchPosition = event.touches[0].clientX;
+    
+    imageRef.current.style.position = 'fixed';
+    imageRef.current.style.left = `${imageLeft + positionChange}px`;
+  }
+
+  function handleTouchEnd(event) {
+    // when the swipe is released, if the final position is more
+    // than some distance from the original position, then load the next image
+    // if the the image didn't move enough when the swipe ended, 
+    // return it to it's original position before the swipe began
+    const swipeDistance = Math.abs(lastTouchPosition - originalTouchPosition);
+    const positiveSwipeDirection = (lastTouchPosition - originalTouchPosition) > 0 ? true : false;
+
+    if (swipeDistance > SWIPE_DISTANCE_THRESHOLD) {
+      if (positiveSwipeDirection) {
+        props.setPreviousImage();
+      }
+      else {
+        props.setNextImage();
+      }
+      imageRef.current.removeAttribute('style');
+    }
+    
+    imageRef.current.style.position = 'static';
+    imageRef.current.style.left = null;
   }
 
   useEffect(() => {
@@ -33,7 +78,6 @@ export default function ImageModal(props) {
     // object to close the modal whenever the escape key is pressed
     // and load the next/previous image whenever the left/right 
     // arrow keys are pressed
-    //
 
     const imageElement = imageRef.current;
     const leftOverlayElement = leftOverlayRef.current;
@@ -105,7 +149,7 @@ export default function ImageModal(props) {
       imageElement.removeEventListener('load', placeOverlays);
     };
   }, [props]);
-
+  
   return (
     <div className="imageModal" onClick={handleClick} ref={modalRef}>
       <img
@@ -113,6 +157,9 @@ export default function ImageModal(props) {
         ref={imageRef}
         className="imageModal__image"
         alt=""
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       ></img>
       <div
         className={leftOverlayIsHovered ? 

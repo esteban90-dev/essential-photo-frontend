@@ -331,7 +331,10 @@ input:focus {
 }
 
 .imageModal__image {
-  /* dimensions to be reset by JS */
+  /* initial dimensions set to zero to prevent
+  a screen flash of a huge image before being
+  scaled down.  all other image styles will be controlled
+  by javascript */
   height: 0px;
   width: 0px;
 }
