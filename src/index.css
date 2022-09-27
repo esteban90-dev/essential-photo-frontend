@@ -339,7 +339,7 @@ input:focus {
   width: 0px;
 }
 
-.imageModal__overlay {
+.imageModal__leftRightOverlay {
   position: fixed;
   display: flex;
   justify-content: center;
@@ -347,13 +347,28 @@ input:focus {
   cursor: pointer;
 }
 
-.imageModal__overlay--hovered {
+.imageModal__bottomOverlay {
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.imageModal__leftRightOverlay--hovered, .imageModal__bottomOverlay--hovered{
   background: rgba(131,131,131,0.3)
 }
 
-.imageModal__icon {
+.imageModal__arrowIcon {
   height: 20px;
   width: 20px;
+}
+
+.imageModal__fullScreenIcon {
+  height: 25px;
+  width: 25px;
+}
+
+.imageModal__fullScreenIconAnchor {
+  padding: 5px;
 }
 
 /* mobile styles */
