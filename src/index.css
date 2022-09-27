@@ -93,28 +93,40 @@ input:focus {
   outline: 2px solid #4579FF;
 }
 
-/* Admin Header */
-.adminheader {
+.button {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 15px 20px;
-  background-color: white;
-  border: 1px solid #E3E3E3;
-  border-radius: 5px;
-}
-
-.adminheader__logout {
+  padding: 0px 10px;
+  height: 35px;
   border: none;
-  background-color: inherit;
-  font-size: inherit;
+  border-radius: 5px;
+  background-color: #4579FF;
+  color: white;
   font-weight: bold;
-  color: inherit;
+  font-size: 16px;
   cursor: pointer;
 }
 
-.adminheader__logout:hover {
-  text-decoration: underline;
+.button--wide {
+  width: 100%;
+}
+
+.button__icon {
+  color: white;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+/* Admin Layout */
+.adminLayout {
+  background-color: #B9B9B9;
+  min-height: 100vh;
+}
+
+.adminLayout__bottom {
+  padding: 0px 10px 30px 10px;
 }
 
 /* Login Page */
@@ -132,18 +144,6 @@ input:focus {
   margin-bottom: 24px;
 }
 
-.login__button {
-  width: 100%;
-  height: 35px;
-  border: none;
-  border-radius: 5px;
-  background-color: #4579FF;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-}
-
 .login__form {
   padding: 25px;
   margin: 0 20px 0 20px;
@@ -156,6 +156,132 @@ input:focus {
 .login__error {
   color: red;
   margin-bottom: 24px;
+}
+
+/* Admin Images Page */
+.adminImages{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  min-height: 500px;
+  border-radius: 5px;
+}
+
+.adminImages__header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 1px;
+  border-color: #E3E3E3;
+}
+
+.adminImages__title {
+  font-weight: bold;
+}
+
+.adminImages__fileInput {
+  display: none;
+}
+
+/* Admin Header Component */
+.adminHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  margin-bottom: 30px;
+  height: 60px;
+  background-color: white;
+  border: 1px solid #E3E3E3;
+  border-radius: 5px;
+}
+
+.adminHeader__link {
+  align-self: stretch;
+  padding: 15px 0px;
+  text-decoration: none;
+  background-color: white;
+  color: #333333;
+  font-weight: bold;
+  border-top: solid 5px;
+  border-top-color: white;
+  border-bottom: solid 5px;
+  border-bottom-color: white;
+}
+
+.adminHeader__link:hover, .adminHeader__link--active {
+  color: #4579FF;
+  border-bottom-color: #4579FF;
+}
+
+.adminHeader__logout {
+  border: none;
+  background-color: inherit;
+  font-size: inherit;
+  font-weight: bold;
+  color: inherit;
+  cursor: pointer;
+}
+
+.adminHeader__logout:hover {
+  color: #4579FF;
+}
+
+/* Drag Drop Component */
+.dragDrop {
+  margin: 20px;
+  border-radius: 5px;
+  background: rgba(69, 121, 255, 0.1); 
+  padding: 10px;
+  min-height: inherit;
+}
+
+.dragDrop__imageContainer {
+  position: relative;
+  width: 20%;
+  height: 150px;
+  padding: 2px;
+}
+
+.dragDrop__image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: inherit;
+}
+
+.dragDrop__innerContainer {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  min-height: inherit;
+}
+
+.dragDrop__overlay {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  padding-top: 30px;
+  color: white;
+  height: 100%;
+  width: 100%;
+  background: rgba(66, 66, 66, 0.637); 
+}
+
+/* mobile styles */
+@media screen and (max-width: 500px) {
+  .dragDrop__imageContainer {
+    width: 50%;
+    height: 100px;
+  }
 }
 
 
