@@ -46,7 +46,7 @@ export default function AdminImages() {
       method: 'GET',
       bodies: [],
     });
-  }, []);
+  }, [setFetchParameters]);
 
   return (
     <>

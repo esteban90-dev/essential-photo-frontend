@@ -184,6 +184,7 @@ input:focus {
   height: 100%;
   object-fit: cover;
   padding: inherit;
+  cursor: pointer;
 }
 
 /* Admin Images Page */
@@ -313,6 +314,43 @@ input:focus {
   height: 100%;
   width: 100%;
   background: rgba(66, 66, 66, 0.637); 
+}
+
+/* Image Modal Component */
+.imageModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.imageModal__image {
+  /* dimensions to be reset by JS */
+  height: 0px;
+  width: 0px;
+}
+
+.imageModal__overlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.imageModal__overlay--hovered {
+  background: rgba(131,131,131,0.3)
+}
+
+.imageModal__icon {
+  height: 20px;
+  width: 20px;
 }
 
 /* mobile styles */
