@@ -1,0 +1,43 @@
+.adminHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  margin-bottom: 30px;
+  height: 60px;
+  background-color: white;
+  border: 1px solid #E3E3E3;
+  border-radius: 5px;
+}
+
+.adminHeader__link {
+  align-self: stretch;
+  padding: 15px 0px;
+  text-decoration: none;
+  background-color: white;
+  color: #333333;
+  font-weight: bold;
+  border-top: solid 5px;
+  border-top-color: white;
+  border-bottom: solid 5px;
+  border-bottom-color: white;
+}
+
+.adminHeader__link:hover, .adminHeader__link--active {
+  color: #4579FF;
+  border-bottom-color: #4579FF;
+}
+
+.adminHeader__logout {
+  border: none;
+  background-color: inherit;
+  font-size: inherit;
+  font-weight: bold;
+  color: inherit;
+  cursor: pointer;
+}
+
+.adminHeader__logout:hover {
+  color: #4579FF;
+}

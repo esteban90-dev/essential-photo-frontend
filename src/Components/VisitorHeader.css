@@ -1,0 +1,8 @@
+.visitorHeader {
+  padding: 20px 0px;
+}
+
+.visitorHeader__title {
+  font-size: 32px;
+  font-weight: bold;
+}

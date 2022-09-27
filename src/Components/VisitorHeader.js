@@ -1,4 +1,5 @@
 import React from 'react';
+import './VisitorHeader.css';
 import {DOMAIN_NAME} from '../settings';
 
 export default function VisitorHeader() {
@@ -6,6 +7,5 @@ export default function VisitorHeader() {
     <header className="visitorHeader">
       <h1 className="visitorHeader__title">{DOMAIN_NAME}</h1>
     </header>
-    
   );
 }

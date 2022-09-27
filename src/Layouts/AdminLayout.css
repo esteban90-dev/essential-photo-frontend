@@ -1,0 +1,8 @@
+.adminLayout {
+  background-color: #B9B9B9;
+  min-height: 100vh;
+}
+
+.adminLayout__bottom {
+  padding: 0px 10px 30px 10px;
+}

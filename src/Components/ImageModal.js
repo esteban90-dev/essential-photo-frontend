@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './ImageModal.css';
 import leftArrowIcon from '../images/left-arrow-icon.svg';
 import rightArrowIcon from '../images/right-arrow-icon.svg';
 import fullScreenIcon from '../images/fullscreen-icon.svg';
