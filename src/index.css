@@ -78,7 +78,7 @@ h4 {
   font-size: 20px;
 }
 
-input {
+input[type="text"], input[type="email"], input[type="password"] {
   width: 100%;
   height: 35px;
   padding: 10px;
@@ -90,6 +90,11 @@ input {
 
 form input {
   margin-bottom: 24px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
   margin-top: 3px;
 }
 

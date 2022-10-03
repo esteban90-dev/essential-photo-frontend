@@ -7,7 +7,7 @@ import {BASE_URL, POST_IMAGES_ENDPOINT, IMAGES_INDEX_ENDPOINT} from '../settings
 import useCallAPI from '../CustomHooks/useCallAPI';
 
 export default function AdminImages() { 
-  const {data, isLoading, setFetchParameters} = useCallAPI();
+  const {data, isLoading, updateDataItem, setFetchParameters} = useCallAPI();
   const fileInputEl = React.useRef(null);
 
   function handleClick(event) {
@@ -68,7 +68,12 @@ export default function AdminImages() {
               onChange={handleChange}
             ></input>
           </header>
-          <DragDrop images={data} isLoading={isLoading} setFetchParameters={setFetchParameters}/>
+          <DragDrop
+            images={data}
+            isLoading={isLoading}
+            setFetchParameters={setFetchParameters}
+            updateImage={updateDataItem}
+          />
         </main>
       </AdminLayout>
     </>

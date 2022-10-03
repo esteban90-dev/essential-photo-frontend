@@ -6,7 +6,11 @@ import {BASE_URL, POST_IMAGES_ENDPOINT} from '../settings';
 export default function DragDrop(props) {
   const adminImages = props.images.map(image => {
     return (
-      <AdminImageCard key={image.id} image={image} />
+      <AdminImageCard
+        key={image.id}
+        image={image}
+        updateImage={props.updateImage}
+      />
     );
   });
 
