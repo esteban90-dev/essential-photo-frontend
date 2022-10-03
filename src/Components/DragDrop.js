@@ -2,6 +2,7 @@ import React from 'react';
 import './DragDrop.css';
 import AdminImageCard from './AdminImageCard';
 import {BASE_URL, POST_IMAGES_ENDPOINT} from '../settings';
+import {VALID_UPLOAD_FILE_TYPES} from '../settings';
 
 export default function DragDrop(props) {
   const adminImages = props.images.map(image => {
@@ -33,7 +34,7 @@ export default function DragDrop(props) {
 
     // remove any non-image files
     const imageFiles = files.filter(file => {
-      return file.type === "image/jpeg" || file.type === "image/png"
+      return VALID_UPLOAD_FILE_TYPES.includes(file.type);
     });
 
     // build a formData object for each file
