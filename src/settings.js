@@ -15,5 +15,5 @@ export const MODAL_ADVANCE_OVERLAY_WIDTH = .15;
 // loading the next image (number is in pixels)
 
 export const SWIPE_DISTANCE_THRESHOLD = 50;
-export const MODAL_ADVANCE_OVERLAY_WIDTH = .15; // number is percentage of image width
+
 export const VALID_UPLOAD_FILE_TYPES = ['image/jpeg', 'image/png'];
