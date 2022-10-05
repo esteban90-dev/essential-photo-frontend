@@ -3,7 +3,7 @@ import './Images.css';
 import VisitorLayout from '../Layouts/VisitorLayout';
 import ShowImage from '../Components/ShowImage';
 import useCallAPI from '../CustomHooks/useCallAPI';
-import {BASE_URL, IMAGES_INDEX_ENDPOINT} from '../settings';
+import {BASE_URL, IMAGES_INDEX_ENDPOINT_PUBLIC_IMAGES_ONLY} from '../settings';
 
 export default function Images() {
   const {data, setFetchParameters} = useCallAPI();
@@ -75,7 +75,7 @@ export default function Images() {
   useEffect(() => {
     // on initial page load, fetch index of photos
     setFetchParameters({
-      url: `${BASE_URL}${IMAGES_INDEX_ENDPOINT}`,
+      url: `${BASE_URL}${IMAGES_INDEX_ENDPOINT_PUBLIC_IMAGES_ONLY}`,
       method: 'GET',
       bodies: [],
     });
