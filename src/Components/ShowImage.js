@@ -17,12 +17,14 @@ export default function ShowImage(props) {
   const bottomOverlayRef = React.useRef(null);
 
   let originalTouchPosition = null;
+  let originalImageTopPosition = null;
   let lastTouchPosition = null;
 
   function handleTouchStart(event) {
     // when the image is initially touched, record the 
-    // original X coordinate position
+    // original X and top coordinate position
     originalTouchPosition = event.touches[0].clientX;
+    originalImageTopPosition = imageRef.current.getBoundingClientRect().top;
     lastTouchPosition = event.touches[0].clientX;
   }
 
@@ -37,6 +39,7 @@ export default function ShowImage(props) {
     
     imageRef.current.style.position = 'fixed';
     imageRef.current.style.left = `${imageLeft + positionChange}px`;
+    imageRef.current.style.top = `${originalImageTopPosition}px`;
   }
 
   function handleTouchEnd(event) {
@@ -56,9 +59,6 @@ export default function ShowImage(props) {
       }
       imageRef.current.removeAttribute('style');
     }
-    
-    imageRef.current.style.position = 'static';
-    imageRef.current.style.left = null;
   }
 
   useEffect(() => {
