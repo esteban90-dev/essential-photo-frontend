@@ -7,7 +7,7 @@ import {BASE_URL, IMAGES_INDEX_ENDPOINT} from '../settings';
 
 export default function Images() {
   const {data, setFetchParameters} = useCallAPI();
-  const [modalImageUrl, setModalImageUrl] = React.useState(null);
+  const [displayedImage, setDisplayedImage] = React.useState(null);
 
   const images = data.map(image => {
     return (
@@ -24,42 +24,23 @@ export default function Images() {
   });
 
   function handleClick(event) {
-    // find image with matching id
-    let selectedImage;
-
+    // display the fullsized image
     data.forEach(image => {
       if (image.id === parseInt(event.target.id)) {
-        selectedImage = image;
+        setDisplayedImage(image);
       }
     });
-    
-    // display the fullsized image modal
-    setModalImageUrl(selectedImage.image_url);
   }
 
-  function closeModal() {
-    setModalImageUrl(null);
-  }
-
-  function getCurrentModalImage() {
-    // return image object associated with 
-    // the current modal url
-    let currentImage;
-
-    data.forEach(image => {
-      if (image.image_url === modalImageUrl) {
-        currentImage = image;
-      }
-    });
-
-    return currentImage;
+  function closeDisplayedImage() {
+    setDisplayedImage(null);
   }
 
   function setPreviousImage() {
-    // set the modal image to the previous
+    // set the displayed image to the previous
     // image in the data array
     let previousImage;
-    const currentImageIndex = data.indexOf(getCurrentModalImage());
+    const currentImageIndex = data.indexOf(displayedImage);
 
     // when the first image is reached, loop
     // to the last image
@@ -70,14 +51,14 @@ export default function Images() {
       previousImage = data[currentImageIndex - 1];
     }
   
-    setModalImageUrl(previousImage.image_url);
+    setDisplayedImage(previousImage);
   }
 
   function setNextImage() {
-    // set the modal image to the next
+    // set the displayed image to the next
     // image in the data array
     let nextImage;
-    const currentImageIndex = data.indexOf(getCurrentModalImage());
+    const currentImageIndex = data.indexOf(displayedImage);
 
     // when the last image is reached, loop
     // to the first image
@@ -88,7 +69,7 @@ export default function Images() {
       nextImage = data[currentImageIndex + 1];
     }
     
-    setModalImageUrl(nextImage.image_url);
+    setDisplayedImage(nextImage);
   }
 
   useEffect(() => {
@@ -102,10 +83,10 @@ export default function Images() {
 
   return (
     <VisitorLayout>
-      {modalImageUrl && 
+      {displayedImage && 
         <ShowImage
-          url={modalImageUrl}
-          close={closeModal}
+          image={displayedImage}
+          close={closeDisplayedImage}
           setPreviousImage={setPreviousImage}
           setNextImage={setNextImage}
         />

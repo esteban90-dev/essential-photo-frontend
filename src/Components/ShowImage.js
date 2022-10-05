@@ -153,12 +153,14 @@ export default function ShowImage(props) {
       imageElement.removeEventListener('load', placeOverlays);
     };
   }, [props]);
+
+  const tagNames = props.image.tags.map(tag => tag.name).join(' ');
   
   return (
     <ModalLayout close={props.close}>
       <div>
         <img
-          src={props.url}
+          src={props.image.image_url}
           ref={imageRef}
           className="showImage__image"
           alt=""
@@ -214,19 +216,25 @@ export default function ShowImage(props) {
           onMouseLeave={() => setBottomOverlayIsHovered(false)}
           ref={bottomOverlayRef}
         >
-          {bottomOverlayIsHovered && 
-            <a
-              href={props.url}
-              className="showImage__fullScreenIconAnchor"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img
-                src={fullScreenIcon}
-                alt="this is a fullscreen icon"
-                className="showImage__fullScreenIcon"
-              ></img>
-            </a> 
+          {bottomOverlayIsHovered &&
+            <>
+              <div>
+                <p>title: {props.image.title}</p>
+                <p>description: {props.image.description}</p>
+                <p>tags: {tagNames}</p>
+              </div>
+              <a
+                href={props.image.image_url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src={fullScreenIcon}
+                  alt="this is a fullscreen icon"
+                  className="showImage__fullScreenIcon"
+                ></img>
+              </a> 
+            </>
           }
         </div>
       </div>
