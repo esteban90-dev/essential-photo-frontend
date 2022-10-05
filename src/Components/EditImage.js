@@ -50,10 +50,10 @@ export default function EditImage(props) {
     if (data.length > 0) {
       props.updateImage(data[data.length - 1]);
     }
-  }, [data])
+  }, [data, props])
   
   return (
-    <ModalLayout>
+    <ModalLayout close={props.close}>
       <main className="editImage">
         {isLoading &&
           <div className="editImage__overlay">
