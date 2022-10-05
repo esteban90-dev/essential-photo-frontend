@@ -6,7 +6,7 @@
   border-radius: 5px;
 }
 
-.editImage__innerContainer {
+.editImage__paddingContainer {
   padding: 25px;
 }
 
@@ -47,4 +47,23 @@
   height: 100%;
   width: 100%;
   background: rgba(66, 66, 66, 0.637); 
+}
+
+/* mobile styles */
+@media screen and (max-height: 650px) {
+  .editImage {
+    max-height: 100vh;
+  }
+
+  .editImage__imageContainer {
+    
+    height: 100px;
+    margin-bottom: 25px;
+  }
+
+  .editImage__formFieldsContainer {
+    height: 200px;
+    overflow-y: scroll;
+    margin-bottom: 25px;
+  }
 }

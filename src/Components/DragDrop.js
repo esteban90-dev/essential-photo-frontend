@@ -52,6 +52,7 @@ export default function DragDrop(props) {
     });
   }
 
+
   return (
     <div className="dragDrop">
       <div className="dragDrop__innerContainer"

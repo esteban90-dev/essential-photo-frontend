@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './EditImage.css';
 import ModalLayout from '../Layouts/ModalLayout';
 import xIcon from '../images/x-icon.svg';
@@ -28,7 +28,6 @@ export default function EditImage(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log('updating image');
 
     // build a formData object
     const formData = new FormData();
@@ -45,12 +44,14 @@ export default function EditImage(props) {
     });
   }
 
-  // if the update request has already been made, 
-  // update the associated image in state
-  if (data.length > 0) {
-    props.updateImage(data[data.length - 1]);
-  }
-
+  useEffect(() => {
+    // if the update request has already been made, 
+    // update the associated image in state
+    if (data.length > 0) {
+      props.updateImage(data[data.length - 1]);
+    }
+  }, [data])
+  
   return (
     <ModalLayout>
       <main className="editImage">
@@ -59,7 +60,7 @@ export default function EditImage(props) {
             <h1>Loading...</h1>
           </div>
         }
-        <div className="editImage__innerContainer">
+        <div className="editImage__paddingContainer">
           <h2 className="editImage__title">Edit Image</h2>
           <img
             src={xIcon}
@@ -75,42 +76,43 @@ export default function EditImage(props) {
             ></img>
           </div>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="title">Title:</label>
-            <input
-              type="text"
-              id="title"
-              name="title"
-              value={imageFormData.title}
-              onChange={handleChange}
-            ></input>
+            <div className="editImage__formFieldsContainer">
+              <label htmlFor="title">Title:</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                value={imageFormData.title}
+                onChange={handleChange}
+              ></input>
 
-            <label htmlFor="description">Description:</label>
-            <input
-              type="text"
-              id="description"
-              name="description"
-              value={imageFormData.description}
-              onChange={handleChange}
-            ></input>
+              <label htmlFor="description">Description:</label>
+              <input
+                type="text"
+                id="description"
+                name="description"
+                value={imageFormData.description}
+                onChange={handleChange}
+              ></input>
 
-            <label htmlFor="tags">Tags:</label>
-            <input
-              type="text"
-              id="tags"
-              name="tags"
-              value={imageFormData.tags}
-              onChange={handleChange}
-            ></input>
+              <label htmlFor="tags">Tags:</label>
+              <input
+                type="text"
+                id="tags"
+                name="tags"
+                value={imageFormData.tags}
+                onChange={handleChange}
+              ></input>
 
-            <input
-              type="checkbox"
-              id="isPublic"
-              name="isPublic"
-              checked={imageFormData.isPublic}
-              onChange={handleChange}
-            ></input>
-            <label htmlFor="isPublic">Is Public</label>
-
+              <input
+                type="checkbox"
+                id="isPublic"
+                name="isPublic"
+                checked={imageFormData.isPublic}
+                onChange={handleChange}
+              ></input>
+              <label htmlFor="isPublic">Is Public</label>
+            </div>
             <button type="submit" className="button button--wide">Update Image</button>
           </form>
         </div>
