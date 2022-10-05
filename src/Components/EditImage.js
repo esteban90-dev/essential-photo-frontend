@@ -6,6 +6,7 @@ import useCallAPI from '../CustomHooks/useCallAPI';
 import {BASE_URL, UPDATE_IMAGE_ENDPOINT} from '../settings';
 
 export default function EditImage(props) {
+  const {updateImage} = props;
   const [imageFormData, setImageFormData] = React.useState({
     title: props.image.title,
     description: props.image.description,
@@ -50,7 +51,7 @@ export default function EditImage(props) {
     if (data.length > 0) {
       props.updateImage(data[data.length - 1]);
     }
-  }, [data, props])
+  }, [data])
   
   return (
     <ModalLayout close={props.close} dark={true}>
