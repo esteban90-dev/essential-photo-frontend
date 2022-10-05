@@ -53,7 +53,7 @@ export default function EditImage(props) {
   }, [data, props])
   
   return (
-    <ModalLayout close={props.close}>
+    <ModalLayout close={props.close} dark={true}>
       <main className="editImage">
         {isLoading &&
           <div className="editImage__overlay">
