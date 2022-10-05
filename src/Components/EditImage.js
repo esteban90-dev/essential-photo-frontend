@@ -83,7 +83,7 @@ export default function EditImage(props) {
                 type="text"
                 id="title"
                 name="title"
-                value={imageFormData.title}
+                value={imageFormData.title ? imageFormData.title : ''}
                 onChange={handleChange}
               ></input>
 
@@ -92,7 +92,7 @@ export default function EditImage(props) {
                 type="text"
                 id="description"
                 name="description"
-                value={imageFormData.description}
+                value={imageFormData.description ? imageFormData.description : ''}
                 onChange={handleChange}
               ></input>
 
@@ -101,7 +101,7 @@ export default function EditImage(props) {
                 type="text"
                 id="tags"
                 name="tags"
-                value={imageFormData.tags}
+                value={imageFormData.tags ? imageFormData.tags : ''}
                 onChange={handleChange}
               ></input>
 
@@ -109,7 +109,7 @@ export default function EditImage(props) {
                 type="checkbox"
                 id="isPublic"
                 name="isPublic"
-                checked={imageFormData.isPublic}
+                checked={imageFormData.isPublic ? 'checked' : ''}
                 onChange={handleChange}
               ></input>
               <label htmlFor="isPublic">Is Public</label>
