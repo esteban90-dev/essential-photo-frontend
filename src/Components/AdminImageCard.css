@@ -1,0 +1,48 @@
+.adminImageCard {
+  width: 20%;
+  padding: 7px;
+}
+
+.adminImageCard__wrapper {
+  border: 1px solid #B9B9B9;
+  background-color: #B9B9B9;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.adminImageCard__imageContainer {
+  height: 150px;
+}
+
+.adminImageCard__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.adminImageCard__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: white;
+}
+
+.adminImageCard__icon {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.adminImageCard__icon--hovered {
+  background-color: #B9B9B9;
+}
+
+/* mobile styles */
+@media screen and (max-width: 500px) {
+  .adminImageCard {
+    width: 50%;
+  }
+
+  .adminImageCard__imageContainer {
+    height: 100px;
+  }
+}

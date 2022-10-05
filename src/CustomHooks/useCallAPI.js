@@ -26,6 +26,20 @@ export default function useCallAPI() {
   const navigate = useNavigate();
   const {logout} = React.useContext(Context);
 
+  function updateDataItem(data) {
+    // manually update object in data array
+    setData(prevData => {
+      return prevData.map(item => {
+        if (item.id === data.id) {
+          return data;
+        }
+        else {
+          return item;
+        }
+      });
+    });
+  }
+
   React.useEffect(() => {
     async function callAPI(url, method, body) {
       const response = await fetch(url, {
@@ -109,5 +123,5 @@ export default function useCallAPI() {
 
   }, [fetchParameters, logout, navigate]);
 
-  return {data, isLoading, setFetchParameters}
+  return {data, isLoading, updateDataItem, setFetchParameters}
 }
