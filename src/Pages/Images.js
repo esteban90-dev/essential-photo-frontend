@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './Images.css';
 import VisitorLayout from '../Layouts/VisitorLayout';
-import ImageModal from '../Components/ImageModal';
+import ShowImage from '../Components/ShowImage';
 import useCallAPI from '../CustomHooks/useCallAPI';
 import {BASE_URL, IMAGES_INDEX_ENDPOINT} from '../settings';
 
@@ -103,9 +103,9 @@ export default function Images() {
   return (
     <VisitorLayout>
       {modalImageUrl && 
-        <ImageModal
+        <ShowImage
           url={modalImageUrl}
-          closeModal={closeModal}
+          close={closeModal}
           setPreviousImage={setPreviousImage}
           setNextImage={setNextImage}
         />
