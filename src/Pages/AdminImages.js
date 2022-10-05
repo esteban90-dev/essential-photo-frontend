@@ -3,7 +3,7 @@ import './AdminImages.css';
 import AdminLayout from '../Layouts/AdminLayout';
 import plusIcon from '../images/plus-icon.svg';
 import DragDrop from '../Components/DragDrop';
-import {BASE_URL, POST_IMAGES_ENDPOINT, IMAGES_INDEX_ENDPOINT, VALID_UPLOAD_FILE_TYPES} from '../settings';
+import {BASE_URL, POST_IMAGES_ENDPOINT, IMAGES_INDEX_ENDPOINT_ALL_IMAGES, VALID_UPLOAD_FILE_TYPES} from '../settings';
 import useCallAPI from '../CustomHooks/useCallAPI';
 
 export default function AdminImages() { 
@@ -43,7 +43,7 @@ export default function AdminImages() {
   useEffect(() => {
     // when page first loads, fetch photos from backend
     setFetchParameters({
-      url: `${BASE_URL}${IMAGES_INDEX_ENDPOINT}`,
+      url: `${BASE_URL}${IMAGES_INDEX_ENDPOINT_ALL_IMAGES}`,
       method: 'GET',
       bodies: [],
     });
