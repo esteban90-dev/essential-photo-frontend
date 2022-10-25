@@ -1,0 +1,38 @@
+.showImage__image {
+  /* initial dimensions set to zero to prevent
+  a screen flash of a huge image before being
+  scaled down.  all other image styles will be controlled
+  by javascript */
+  height: 0px;
+  width: 0px;
+}
+
+.showImage__leftRightOverlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.showImage__bottomOverlay {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  padding: 5px;
+}
+
+.showImage__leftRightOverlay--hovered, .showImage__bottomOverlay--hovered{
+  background: rgba(131,131,131,0.3)
+}
+
+.showImage__arrowIcon {
+  height: 20px;
+  width: 20px;
+}
+
+.showImage__fullScreenIcon {
+  height: 25px;
+  width: 25px;
+}
