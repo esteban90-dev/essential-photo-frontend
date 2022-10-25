@@ -40,6 +40,11 @@ export default function useCallAPI() {
     });
   }
 
+  function clearData() {
+    //clear data from state
+    setData([]);
+  }
+
   React.useEffect(() => {
     async function callAPI(url, method, body) {
       const response = await fetch(url, {
@@ -123,5 +128,5 @@ export default function useCallAPI() {
 
   }, [fetchParameters, logout, navigate]);
 
-  return {data, isLoading, updateDataItem, setFetchParameters}
+  return {data, isLoading, updateDataItem, clearData, setFetchParameters}
 }

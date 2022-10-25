@@ -6,8 +6,9 @@ import useCallAPI from '../CustomHooks/useCallAPI';
 import {BASE_URL, IMAGES_INDEX_ENDPOINT_PUBLIC_IMAGES_ONLY} from '../settings';
 
 export default function Images() {
-  const {data, setFetchParameters} = useCallAPI();
+  const {data, clearData, setFetchParameters} = useCallAPI();
   const [displayedImage, setDisplayedImage] = React.useState(null);
+  const [searchInfoText, setSearchInfoText] = React.useState('');
 
   const images = data.map(image => {
     return (
@@ -82,7 +83,11 @@ export default function Images() {
   }, [setFetchParameters]);
 
   return (
-    <VisitorLayout>
+    <VisitorLayout
+      clearData={clearData}
+      setFetchParameters={setFetchParameters}
+      setSearchInfoText={setSearchInfoText}
+    >
       {displayedImage && 
         <ShowImage
           image={displayedImage}
@@ -90,6 +95,11 @@ export default function Images() {
           setPreviousImage={setPreviousImage}
           setNextImage={setNextImage}
         />
+      }
+      {searchInfoText &&
+        <p className="images__searchInfo">
+          Displaying images with tags: {searchInfoText}
+        </p>
       }
       <main className="images">
         {images}
