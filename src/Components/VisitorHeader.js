@@ -56,7 +56,7 @@ export default function VisitorHeader(props) {
           ></input>
         </form>
         <p className="visitorHeader__inputInfo">
-          SEPARATE YOUR TAGS WITH A COMMA
+          SEPARATE TAGS WITH A COMMA
         </p>
       </div>
     </header>
