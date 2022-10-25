@@ -1,6 +1,7 @@
 .visitorHeader {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding: 20px 0 5px 0;
 }
 
@@ -24,4 +25,16 @@
   padding: 5px;
   font-size: 10px;
   color: #B9B9B9;
+}
+
+/* mobile styles */
+@media screen and (max-width: 550px) {
+  .visitorHeader__title {
+    width: 100%;
+  }
+  
+  .visitorHeader__search {
+    width: 1000%;
+    margin-top: 10px;
+  }
 }
