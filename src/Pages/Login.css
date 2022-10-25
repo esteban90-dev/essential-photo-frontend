@@ -21,3 +21,7 @@
   color: red;
   margin-bottom: 24px;
 }
+
+.login__input {
+  width: 100%;
+}

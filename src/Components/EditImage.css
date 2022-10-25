@@ -49,6 +49,10 @@
   background: rgba(66, 66, 66, 0.637); 
 }
 
+.editImage__input {
+  width: 100%;
+}
+
 /* mobile styles */
 @media screen and (max-height: 650px) {
   .editImage {
