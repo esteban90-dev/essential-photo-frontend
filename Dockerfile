@@ -11,4 +11,4 @@ WORKDIR /opt/essential-frontend
 COPY . /
 RUN npm install
 
-CMD ["rails -s -p 3031"]
+CMD ["npm start"]
