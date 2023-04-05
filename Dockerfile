@@ -11,6 +11,6 @@ WORKDIR /opt/essential-frontend
 COPY . /
 RUN npm install
 
-EXPORT 3000
+EXPOSE 3000
 
 CMD ["npm start"]
