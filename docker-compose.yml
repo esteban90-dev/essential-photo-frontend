@@ -1,0 +1,38 @@
+--- 
+
+version: '1'
+
+services:
+  db:
+    image: postgres:14.7-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+  backend: 
+    build: https://github.com/esteban90-dev/essential-photo-backend.git#basic-dockerfile
+    command: rails s -p 3001
+    links:
+      - "db:db"
+    ports:
+      - 3001
+    depends_on:
+      - db
+  frontend:
+    build: https://github.com/esteban90-dev/essential-photo-frontend.git#also-a-dockerfile
+    command: npm start
+    links:
+      - "backend:backend"
+    ports:
+      - '3000:3000'
+    depends_on:
+      - backend
+    environment:
+      HOST: 0.0.0.0
+volumes:
+  db:
+    driver: local
