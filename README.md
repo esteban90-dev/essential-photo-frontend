@@ -2,6 +2,15 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+### To run this project
+
+Clone the project and run `docker-compose -f docker-compose.yml up`
+
+You can set the branch it pulls in the docker compose file like this 
+
+`https://github.com/esteban90-dev/essential-photo-backend.git#<BRNACH_HERE>`
+
 ## Available Scripts
 
 In the project directory, you can run:
