@@ -5,11 +5,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### To run this project
 
-Clone the project and run `docker-compose -f docker-compose.yml up`
+Clone the project build it using `docker-compose build` and run `docker-compose up`
+
+You might need to do build the project using `docker-compose build`
 
 You can set the branch it pulls in the docker compose file like this 
 
 `https://github.com/esteban90-dev/essential-photo-backend.git#<BRNACH_HERE>`
+
+To exec into the rails console on the backend
+
+`docker exec -it essential-photo-frontend-backend-1 /bin/bash`
 
 ## Available Scripts
 
