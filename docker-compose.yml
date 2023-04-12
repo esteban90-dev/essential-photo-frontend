@@ -14,7 +14,7 @@ services:
     volumes: 
       - db:/var/lib/postgresql/data
   backend: 
-    build: https://github.com/esteban90-dev/essential-photo-backend.git#basic-dockerfile
+    build: https://github.com/esteban90-dev/essential-photo-backend.git#main
     command: rails s -p 3001
     links:
       - "db:db"
@@ -23,7 +23,7 @@ services:
     depends_on:
       - db
   frontend:
-    build: https://github.com/esteban90-dev/essential-photo-frontend.git#also-a-dockerfile
+    build: https://github.com/esteban90-dev/essential-photo-frontend.git#main
     command: npm start
     links:
       - "backend:backend"
