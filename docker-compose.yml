@@ -7,7 +7,7 @@ services:
     image: postgres:14.7-alpine
     restart: always
     environment:
-      POSTGRES_DB: essentialdb
+      POSTGRES_DB: essential_photo_backend_development
       POSTGRES_USER: essential_photo_backend
       POSTGRES_PASSWORD: postgres
     command: "postgres -c 'max_connections=500'"
@@ -16,15 +16,15 @@ services:
     volumes: 
       - db:/var/lib/postgresql/data
   backend: 
-    build: https://github.com/esteban90-dev/essential-photo-backend.git#main
-    command: rails s -p 3001
+    build: https://github.com/esteban90-dev/essential-photo-backend.git#username-changes
+    command: rails s -p 3001 --binding 0.0.0.0 
     ports:
       - '3001:3001'
     depends_on:
       - db
     environment:
-      DB_HOST: db
-      DB_NAME: essentialdb
+      DB_HOST: localhost
+      DB_NAME: essential_photo_backend_development
       DB_USER: essential_photo_backend
       DB_PASSWORD: postgres
       ESSENTIAL_PHOTO_BACKEND_DATABASE_PASSWORD: postgres
