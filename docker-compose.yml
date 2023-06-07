@@ -13,7 +13,7 @@ services:
     volumes: 
       - ./tmp/db:/var/lib/postgresql/data
   backend: 
-    build: https://github.com/esteban90-dev/essential-photo-backend.git#username-changes
+    build: https://github.com/esteban90-dev/essential-photo-backend.git#main
     command: rails s -p 3001 --binding 0.0.0.0 
     ports:
       - '3001:3001'
