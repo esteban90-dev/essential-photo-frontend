@@ -11,6 +11,9 @@
 # production
 /build
 
+# Database garbage
+/tmp
+
 # misc
 .DS_Store
 .env.local
