@@ -81,6 +81,7 @@ export default function EditImage(props) {
               <label htmlFor="title">Title:</label>
               <input
                 type="text"
+                className="editImage__input"
                 id="title"
                 name="title"
                 value={imageFormData.title ? imageFormData.title : ''}
@@ -90,6 +91,7 @@ export default function EditImage(props) {
               <label htmlFor="description">Description:</label>
               <input
                 type="text"
+                className="editImage__input"
                 id="description"
                 name="description"
                 value={imageFormData.description ? imageFormData.description : ''}
@@ -99,6 +101,7 @@ export default function EditImage(props) {
               <label htmlFor="tags">Tags:</label>
               <input
                 type="text"
+                className="editImage__input"
                 id="tags"
                 name="tags"
                 value={imageFormData.tags ? imageFormData.tags : ''}

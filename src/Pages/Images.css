@@ -20,6 +20,10 @@
   cursor: pointer;
 }
 
+.images__searchInfo {
+  margin-bottom: 5px;
+}
+
 /* mobile styles */
 @media screen and (max-width: 400px) {
   .images__imageContainer {
